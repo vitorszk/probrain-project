@@ -1,7 +1,11 @@
+function isPerfectSquare(numberToVerify) {
+  let square = parseInt(Math.sqrt(numberToVerify));
+  return square * square === numberToVerify;
+}
+
 export const isFibonacci = (num) => {
-    function isSquare(s) {
-      let n = Math.sqrt(s);
-      return n * n === s;
-    }
-    return isSquare(5 * (num * num) - 4 || isSquare(5 * (num * num) + 4));
-  };
+  if (num < 0) return false;
+  return (
+    isPerfectSquare(5 * (num * num) - 4) || isPerfectSquare(5 * (num * num) + 4)
+  );
+};

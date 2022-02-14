@@ -8,12 +8,12 @@ import AlertTitle from "@mui/material/AlertTitle";
 
 import { Container, StyledButton, StyledFormControl } from "./styled";
 import {
-  IsEvencomponent,
-  IsPinComponent,
-  IsPrimeComponent,
-  IsFibonacciComponent,
+  EvenComponent,
+  PinComponent,
+  PrimeComponent,
+  FibonacciComponent,
 } from "./components";
-import { numberIsValid } from "./validations";
+import { numberIsValid } from "./utils/numberIsValid";
 import Snackbar from "@mui/material/Snackbar";
 
 const App = () => {
@@ -34,10 +34,10 @@ const App = () => {
   };
 
   const renderComponents = {
-    1: <IsEvencomponent number={number} />,
-    2: <IsPrimeComponent number={number} />,
-    3: <IsFibonacciComponent number={number} />,
-    4: <IsPinComponent />,
+    1: <EvenComponent number={number} />,
+    2: <PrimeComponent number={number} />,
+    3: <FibonacciComponent number={number} />,
+    4: <PinComponent />,
   }[game];
 
   return (
