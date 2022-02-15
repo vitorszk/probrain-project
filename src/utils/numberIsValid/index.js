@@ -1,3 +1,5 @@
 export const numberIsValid = (num) => {
-    return (num > 0 && num < 1001)
-}
+  if (!(num % 1 === 0)) return false;
+
+  return num > 0 && num < 1001;
+};

@@ -19,4 +19,11 @@ describe("isPrime function", () => {
 
     expect(result).toBe(false);
   });
+
+  it("Should return false for float numbers", () => {
+    const result = isPrime(0.999);
+
+    expect(result).toBe(false)
+  })
+
 });

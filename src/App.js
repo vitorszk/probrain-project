@@ -17,9 +17,7 @@ import { numberIsValid } from "./utils/numberIsValid";
 import Snackbar from "@mui/material/Snackbar";
 
 const App = () => {
-
-  
-  const [game, setGame] = React.useState();
+  const [game, setGame] = React.useState(2);
   const [number, setNumber] = React.useState(1);
   const [open, setOpen] = React.useState(false);
 
@@ -50,11 +48,13 @@ const App = () => {
           type="number"
           InputProps={{ inputProps: { min: 1, max: 1000 } }}
           error={!numberIsValid(number)}
+          data-testid="textField"
           helperText={
             numberIsValid(number) ? "" : "Escolha um número de 1 a 1000"
           }
           onChange={handleChangeNumber}
           margin="normal"
+          placeholder="Insira um número"
           defaultValue={1}
         />
       </StyledFormControl>
@@ -68,8 +68,9 @@ const App = () => {
           width="large"
           label="Jogos"
           disabled={!number}
+          defaultValue={2}
         >
-          <MenuItem selected={true} disabled value="Games">
+          <MenuItem selected={true} disabled value={undefined}>
             <em>Selecione um jogo</em>
           </MenuItem>
           <MenuItem value={1}>Par ou ímpar?</MenuItem>
@@ -84,7 +85,7 @@ const App = () => {
       >
         PIN!
       </StyledButton>
-      {renderComponents}
+      {numberIsValid(number) && (renderComponents || <></>)}
       <Snackbar
         open={open}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
